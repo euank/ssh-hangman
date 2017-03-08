@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/docker/machine/log"
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/crypto/ssh/terminal"
 )
@@ -141,7 +140,7 @@ M7e+7EosDONRsAxrPE94CNGal1TF4v7Ejks/9xIP2MfAAYD1q4Jk2g==
 					term.Write([]byte("\r\nGuess a letter\r\n"))
 					var l string
 					for l, err = term.ReadLine(); len(l) != 1; l, err = term.ReadLine() {
-						log.Debug(l)
+						logrus.Debug(l)
 						if strings.HasPrefix(l, "guess: ") {
 							if l[len("guess: "):] == word {
 								term.Write([]byte("YOU GOT IT!\r\n"))
